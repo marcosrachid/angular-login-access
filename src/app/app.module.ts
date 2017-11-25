@@ -1,8 +1,11 @@
+import 'hammerjs';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
+import { AppComponent, AppGuard, DashboardModule, LoginModule } from './';
 
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -10,9 +13,15 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    DashboardModule,
+    LoginModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AppGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
