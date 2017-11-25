@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { LoginService } from '../_services';
@@ -6,30 +7,41 @@ import { LoginService } from '../_services';
 import { Login } from '../_models';
 
 @Component({
-  selector: 'app-login',
+  selector: 'login-form',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  private user: string;
-  private password: string;
+  private loginForm: FormGroup;
   private msgError: string;
 
-  constructor(private router: Router, private loginService: LoginService) {}
+  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) {}
 
-  login() {
-    this.loginService.login(this.user, this.password)
+  ngOnInit() {
+        this.createForm();
+  }
+
+  private createForm() {
+    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    this.loginForm = this.fb.group({
+      user: ['',  Validators.compose([ Validators.required, Validators.pattern(emailRegex) ]) ],
+      password: ['', Validators.required ]
+    });
+  }
+
+  login(model: any, isValid: boolean) {
+    this.loginService.login(model.user, model.password)
       .subscribe(
         login => this.processLogin(login),
-        error => this.msgError = error
+        error => this.msgError = error.error.message
       );
-    this.router.navigate(['/']);
+    this.router.navigate(['/dashboard']);
   }
 
   processLogin(login: Login) {
-    localStorage['access_token'] = login.access_token;
-    this.router.navigate(['/']);
+    localStorage['access_token'] = login.token;
+    this.router.navigate(['/dashboard']);
   }
 
 }

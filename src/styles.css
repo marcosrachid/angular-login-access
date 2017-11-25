@@ -1,2 +1,122 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  color: #676a6c;
+  overflow-x: hidden;
+  margin: 0px;
+  height: 100%;
+  background-color: #f3f3f4 !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+hgroup {
+	text-align:center;
+	margin-top: 4em;
+}
+
+ul {
+  margin-bottom: 10px;
+}
+
+li {
+  text-align: -webkit-match-parent;
+}
+
+th {
+  text-align: center !important;
+}
+
+td.liquidante {
+  border: 1px solid #dddddd;
+  vertical-align: middle !important;
+}
+
+td.upperDiff {
+  color: blue;
+}
+
+td.lowerDiff {
+  color: red;
+}
+
+tr.total>td, td.total {
+  font-weight: bold;
+  padding: 8px;
+  vertical-align: bottom;
+  border-top: 2px solid #ddd;
+  border-bottom: 0;
+}
+
+md-icon.small {
+  height: 12px;
+  width: 12px;
+  font-size: 12px;
+}
+
+.mat-tab-label[_ngcontent-c6] {
+  width: 50%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.example-container {
+  width: 100%;
+  height: 100%;
+}
+
+.example-sidenav-content {
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav ul {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.example-sidenav ul li {
+  position: relative;
+  display: block;
+}
+
+.example-sidenav ul li a {
+  font-weight: 600;
+  padding: 14px 20px 14px 25px;
+  position: relative;
+  display: block;
+  color: #000000;
+  text-decoration: none;
+}
+
+.example-sidenav ul li a:hover {
+  color: #ffffff;
+  background-color: #673ab7;
+}
+
+.middle-box {
+    max-width: 400px;
+    z-index: 100;
+    margin: 0 auto;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.alert {
+  color: #b24442;
+}

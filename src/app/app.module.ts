@@ -1,20 +1,20 @@
 import 'hammerjs';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatToolbarModule } from '@angular/material';
 
-import { AppComponent, AppGuard, DashboardModule, LoginModule } from './';
+import { SharedModule, DashboardModule, LoginModule } from './';
 
+import { AppComponent } from './app.component';
+import { AppGuard } from './app.guard';
 import { AppRoutingModule } from './app-routing.module';
-
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    HttpModule,
+    MatToolbarModule,
+    SharedModule,
     DashboardModule,
     LoginModule,
     AppRoutingModule
@@ -22,6 +22,11 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [
     AppGuard
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

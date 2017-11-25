@@ -1,3 +1,3 @@
-export class DTO<T> {
-  constructor(public data?: T) {}
+export class DTO {
+  constructor(public data?: any) {}
 }
