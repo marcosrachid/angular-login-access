@@ -5,7 +5,14 @@ import { MatToolbarModule, MatFormFieldModule, MatSelectModule } from '@angular/
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { SharedModule, DashboardModule, LoginModule, AppGuard, HttpHelper, EventBrokerHelper } from './';
+import {
+  SharedModule,
+  DashboardModule,
+  LoginModule,
+  AppGuard, 
+  HttpHelper,
+  EventBrokerHelper
+} from './';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';

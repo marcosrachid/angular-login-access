@@ -2,7 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
-import { EventBrokerHelper, IEventListener, Language } from './';
+import {
+  EventBrokerHelper,
+  IEventListener,
+  Language 
+} from './';
 
 @Component({
   selector: 'app-root',
