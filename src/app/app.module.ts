@@ -1,12 +1,18 @@
 import 'hammerjs';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { MatToolbarModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { SharedModule, DashboardModule, LoginModule, LoginService, EventBrokerHelper } from './';
+import { SharedModule, DashboardModule, LoginModule, AppGuard, HttpHelper, EventBrokerHelper } from './';
 
 import { AppComponent } from './app.component';
-import { AppGuard } from './app.guard';
 import { AppRoutingModule } from './app-routing.module';
+
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -16,6 +22,13 @@ import { AppRoutingModule } from './app-routing.module';
     MatToolbarModule,
     MatFormFieldModule,
     MatSelectModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: createTranslateLoader,
+            deps: [HttpClient]
+        }
+    }),
     SharedModule,
     DashboardModule,
     LoginModule,
@@ -23,8 +36,8 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   providers: [
     AppGuard,
-    LoginService,
-    EventBrokerHelper
+    EventBrokerHelper,
+    HttpHelper
   ],
   bootstrap: [
     AppComponent

@@ -1,0 +1,17 @@
+{
+  "title": "Angular Login Access",
+  "login": {
+    "author": "By Marcos Rachid",
+    "password": "Password",
+    "login": "Login",
+    "alert": {
+      "email": {
+        "required": "E-mail is required",
+        "invalid": "E-mail is not valid"
+      },
+      "password": "Password is required"
+    }
+  },
+  "logout": "Logout",
+  "dashboard": "Dashboard Worked!"
+}

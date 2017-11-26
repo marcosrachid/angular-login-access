@@ -1,0 +1,17 @@
+{
+  "title": "Inicio de Sesión de Acceso Angular",
+  "login": {
+    "author": "Por Marcos Rachid",
+    "password": "Contraseña",
+    "login": "Entrar",
+    "alert": {
+      "email": {
+        "required": "E-mail es obligatorio",
+        "invalid": "E-mail es invalido"
+      },
+      "password": "Contraseña es obligatoria"
+    }
+  },
+  "logout": "Salir",
+  "dashboard": "Dashboard funcionó!"
+}

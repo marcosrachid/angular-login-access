@@ -26,9 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   private createForm() {
-    const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     this.loginForm = this.fb.group({
-      user: ['',  Validators.compose([ Validators.required, Validators.pattern(emailRegex) ]) ],
+      user: ['',  Validators.compose([ Validators.required, Validators.email ]) ],
       password: ['', Validators.required ]
     });
   }

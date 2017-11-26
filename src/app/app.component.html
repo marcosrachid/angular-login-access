@@ -1,22 +1,14 @@
 <header>
   <mat-toolbar class="app-toolbar mat-toolbar mat-toolbar-row mat-primary" color="primary" role="toolbar">
-    <span class="example-spacer">
-      <h2><a href="/">Angular Login Access</a></h2>
+    <span class="title-spacer">
+      <h2><a href="javascript:void(0)">{{ 'title' | translate }}</a></h2>
     </span>
-    <mat-form-field class="example-icon">
-      <mat-select>
-        <mat-option [value]="en">
-          English
-        </mat-option>
-        <mat-option [value]="es">
-          Español
-        </mat-option>
-        <mat-option [value]="pt_BR">
-          Potuguês
-        </mat-option>
+    <mat-form-field class="right-menu">
+      <mat-select [(ngModel)]="language" [compareWith]="compareFn" (change)="changeLanguage()">
+        <mat-option *ngFor="let l of languages" [value]="l.id">{{ l.description }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <a class="example-icon" *ngIf="token" href="#" (click)="logout()">Logout</a>
+    <a class="right-menu" *ngIf="token" href="javascript:void(0)" (click)="logout()">{{ 'logout' | translate }}</a>
   </mat-toolbar>
 </header>
 <section>

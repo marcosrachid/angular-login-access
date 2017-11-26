@@ -1,6 +1,6 @@
 <hgroup>
-  <h1>Angular Login Access</h1>
-  <h3>By Marcos Rachid</h3><br />
+  <h1>{{ 'title' | translate }}</h1>
+  <h3>{{ 'login.author' | translate }}</h3><br />
   <div class="alert" role="alert" *ngIf="msgError">
     {{ msgError }}
   </div>
@@ -10,18 +10,18 @@
     <input class="form-control" type="email" formControlName="user" /><span class="highlight" ></span><span class="bar"></span>
     <label for="user" [class.active]="loginForm.controls['user'].value">E-mail</label>
     <div *ngIf="loginForm.controls['user'].errors && (loginForm.controls['user'].dirty || loginForm.controls['user'].touched)">
-      <p *ngIf="loginForm.controls['user'].errors.required" class="alert">E-mail is required</p>
-      <p *ngIf="loginForm.controls['user'].errors.pattern" class="alert">E-mail is not valid</p>
+      <p *ngIf="loginForm.controls['user'].errors.required" class="alert">{{ 'login.alert.email.required' | translate }}</p>
+      <p *ngIf="!loginForm.controls['user'].errors.required && loginForm.controls['user'].errors.email" class="alert">{{ 'login.alert.email.invalid' | translate }}</p>
     </div>
   </div>
   <div class="form-group">
     <input class="form-control" type="password" formControlName="password" /><span class="highlight"></span><span class="bar"></span>
-    <label for="password" [class.active]="loginForm.controls['password'].value">Password</label>
+    <label for="password" [class.active]="loginForm.controls['password'].value">{{ 'login.password' | translate }}</label>
     <div *ngIf="loginForm.controls['password'].errors && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
-      <p *ngIf="loginForm.controls['password'].errors.required" class="alert">Password is required</p>
+      <p *ngIf="loginForm.controls['password'].errors.required" class="alert">{{ 'login.alert.password' | translate }}</p>
     </div>
   </div>
-  <button type="submit" [disabled]="!loginForm.valid" class="button buttonBlue" color="primary">Entrar
+  <button type="submit" [disabled]="!loginForm.valid" class="button buttonBlue" color="primary">{{ 'login.login' | translate }}
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
 </form>

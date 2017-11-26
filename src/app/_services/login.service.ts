@@ -14,8 +14,4 @@ export class LoginService {
     return this.httpHelper.authenticate(body);
   }
 
-  public logout() {
-    delete localStorage['access_token'];
-  }
-
 }

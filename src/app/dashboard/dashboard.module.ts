@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { SharedModule, HttpHelper } from '../_shared';
+import { SharedModule } from '../_shared';
 
 import { DashboardService } from '../_services';
 
@@ -14,7 +14,6 @@ import { DashboardComponent } from './';
     DashboardComponent
   ],
   providers: [
-    HttpHelper,
     DashboardService
   ],
   schemas: [

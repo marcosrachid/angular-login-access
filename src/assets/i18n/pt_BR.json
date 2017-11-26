@@ -1,0 +1,17 @@
+{
+  "title": "Login de Acesso Angular",
+  "login": {
+    "author": "Por Marcos Rachid",
+    "password": "Senha",
+    "login": "Entrar",
+    "alert": {
+      "email": {
+        "required": "E-mail é obrigatório",
+        "invalid": "E-mail é inválido"
+      },
+      "password": "Senha é obrigatória"
+    }
+  },
+  "logout": "Sair",
+  "dashboard": "Dashboard funcionou!"
+}
