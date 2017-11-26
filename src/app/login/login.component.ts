@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { EventBrokerHelper } from '../_shared';
 
 import { LoginService } from '../_services';
 
@@ -16,7 +18,7 @@ export class LoginComponent implements OnInit {
   private loginForm: FormGroup;
   private msgError: string;
 
-  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) {}
+  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService, private eventBroker: EventBrokerHelper) {}
 
   ngOnInit() {
         this.createForm();
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
 
   processLogin(login: Login) {
     localStorage['access_token'] = login.token;
+    this.eventBroker.emit<string>("token", login.token);
     this.router.navigate(['/dashboard']);
   }
 

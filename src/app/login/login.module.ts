@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
-import { SharedModule, HttpHelper } from '../_shared';
+import { SharedModule, HttpHelper, EventBrokerHelper } from '../_shared';
 
 import { LoginService } from '../_services';
 
@@ -15,6 +15,7 @@ import { LoginComponent } from './';
   ],
   providers: [
     HttpHelper,
+    EventBrokerHelper,
     LoginService
   ],
   schemas: [

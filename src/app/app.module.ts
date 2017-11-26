@@ -1,8 +1,8 @@
 import 'hammerjs';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 
-import { SharedModule, DashboardModule, LoginModule } from './';
+import { SharedModule, DashboardModule, LoginModule, LoginService, EventBrokerHelper } from './';
 
 import { AppComponent } from './app.component';
 import { AppGuard } from './app.guard';
@@ -14,13 +14,17 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     MatToolbarModule,
+    MatFormFieldModule,
+    MatSelectModule,
     SharedModule,
     DashboardModule,
     LoginModule,
     AppRoutingModule
   ],
   providers: [
-    AppGuard
+    AppGuard,
+    LoginService,
+    EventBrokerHelper
   ],
   bootstrap: [
     AppComponent

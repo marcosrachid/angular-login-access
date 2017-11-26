@@ -1,4 +1,23 @@
 <header>
+  <mat-toolbar class="app-toolbar mat-toolbar mat-toolbar-row mat-primary" color="primary" role="toolbar">
+    <span class="example-spacer">
+      <h2>Angular Login Access</h2>
+    </span>
+    <mat-form-field class="example-icon">
+      <mat-select>
+        <mat-option [value]="en">
+          English
+        </mat-option>
+        <mat-option [value]="es">
+          Español
+        </mat-option>
+        <mat-option [value]="pt_BR">
+          Potuguês
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <a class="example-icon" *ngIf="token" href="#" (click)="logout()">Logout</a>
+  </mat-toolbar>
 </header>
 <section>
   <router-outlet></router-outlet>

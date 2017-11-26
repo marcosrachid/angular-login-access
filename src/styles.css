@@ -56,6 +56,17 @@ tr.total>td, td.total {
   border-bottom: 0;
 }
 
+a, a:link, a:visited, a:active  {
+  color: #e1e6f5;
+  text-decoration: none;
+}
+
+a:hover {
+    color: #e1e6f5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 md-icon.small {
   height: 12px;
   width: 12px;
