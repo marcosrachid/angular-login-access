@@ -9,7 +9,7 @@ import { LoginService } from '../_services';
 import { Login } from '../_models';
 
 @Component({
-  selector: 'login-form',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   private loginForm: FormGroup;
   private msgError: string;
 
-  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService, private eventBroker: EventBrokerHelper) {}
+  constructor(private fb: FormBuilder, private router: Router,
+    private loginService: LoginService, private eventBroker: EventBrokerHelper) {}
 
   ngOnInit() {
         this.createForm();
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
 
   processLogin(login: Login) {
     localStorage['access_token'] = login.token;
-    this.eventBroker.emit<string>("token", login.token);
+    this.eventBroker.emit<string>('token', login.token);
     this.router.navigate(['/dashboard']);
   }
 

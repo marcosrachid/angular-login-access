@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Rx';
 
 import { DTO, Login } from '../../_models';
 
 @Injectable()
 export class HttpHelper {
 
-  private API_URL: string = 'http://localhost:7001/site/api/v1/';
-  private AUTH_URL: string = 'http://localhost:7001/site/api/v1/auth/sign_in';
+  private API_URL = 'http://localhost:7001/site/api/v1/';
+  private AUTH_URL = 'http://localhost:7001/site/api/v1/auth/sign_in';
 
   constructor(private http: HttpClient) {}
 
   public authenticate(body: any) {
     const headersParams = {
       'Content-Type': 'application/json'
-    }
+    };
     const headers = new HttpHeaders(headersParams);
     return this.http.post<Login>(this.AUTH_URL, body, { headers: headers });
   }

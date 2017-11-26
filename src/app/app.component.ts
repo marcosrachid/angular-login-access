@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
       this.token = localStorage['access_token'] || '';
-      this.eventListener = this.eventBroker.listen<string>("token", (value:string) => {
+      this.eventListener = this.eventBroker.listen<string>('token', (value: string) => {
                this.token = value;
           });
   }
