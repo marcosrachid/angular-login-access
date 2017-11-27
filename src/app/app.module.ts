@@ -9,7 +9,8 @@ import {
   SharedModule,
   DashboardModule,
   LoginModule,
-  AppGuard, 
+  RegisterUserModule,
+  AppGuard,
   HttpHelper,
   EventBrokerHelper
 } from './';
@@ -39,6 +40,7 @@ export function createTranslateLoader(http: HttpClient) {
     SharedModule,
     DashboardModule,
     LoginModule,
+    RegisterUserModule,
     AppRoutingModule
   ],
   providers: [

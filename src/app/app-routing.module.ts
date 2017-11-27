@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginRoutes } from './login';
-import { DashboardRoutes } from './dashboard';
+import {
+  LoginRoutes,
+  DashboardRoutes,
+  RegisterUserRoutes
+} from './';
 
 import { AppComponent } from './app.component';
 
 export const routes: Routes = [
   ...LoginRoutes,
+  ...RegisterUserRoutes,
   ...DashboardRoutes,
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];

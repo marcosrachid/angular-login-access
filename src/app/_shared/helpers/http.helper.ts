@@ -8,6 +8,7 @@ export class HttpHelper {
 
   private API_URL = 'http://localhost:7001/site/api/v1/';
   private AUTH_URL = 'http://localhost:7001/site/api/v1/auth/sign_in';
+  private SIGNUP_URL = 'http://localhost:7001/site/api/v1/auth/register';
 
   constructor(private http: HttpClient) {}
 
@@ -19,10 +20,18 @@ export class HttpHelper {
     return this.http.post<Login>(this.AUTH_URL, body, { headers: headers });
   }
 
+  public register(body: any) {
+    const headersParams = {
+      'Content-Type': 'application/json'
+    };
+    const headers = new HttpHeaders(headersParams);
+    return this.http.post<void>(this.SIGNUP_URL, body, { headers: headers });
+  }
+
   public get(path: string) {
     const headersParams = {
       'Content-Type': 'application/json',
-      'Authorization': localStorage['access_token']
+      'Authorization': localStorage['access_token'] || ''
     };
     const headers = new HttpHeaders(headersParams);
     return this.http.get<DTO>(this.url(path), { headers: headers });
@@ -31,7 +40,7 @@ export class HttpHelper {
   public post(path: string, body: any) {
     const headersParams = {
       'Content-Type': 'application/json',
-      'Authorization': localStorage['access_token']
+      'Authorization': localStorage['access_token'] || ''
     };
     const headers = new HttpHeaders(headersParams);
     return this.http.post<DTO>(this.url(path), body, { headers: headers });
@@ -40,7 +49,7 @@ export class HttpHelper {
   public put(path: string, body: any) {
     const headersParams = {
       'Content-Type': 'application/json',
-      'Authorization': localStorage['access_token']
+      'Authorization': localStorage['access_token'] || ''
     };
     const headers = new HttpHeaders(headersParams);
     return this.http.put<DTO>(this.url(path), body, { headers: headers });
@@ -49,7 +58,7 @@ export class HttpHelper {
   public delete(path: string, body: any) {
     const headersParams = {
       'Content-Type': 'application/json',
-      'Authorization': localStorage['access_token']
+      'Authorization': localStorage['access_token'] || ''
     };
     const headers = new HttpHeaders(headersParams);
     return this.http.delete<DTO>(this.url(path), { headers: headers });

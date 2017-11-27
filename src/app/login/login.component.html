@@ -2,7 +2,7 @@
   <h1>{{ 'title' | translate }}</h1>
   <h3>{{ 'login.author' | translate }}</h3><br />
   <div class="alert" role="alert" *ngIf="msgError">
-    {{ msgError }}
+    {{ msgError | translate }}
   </div>
 </hgroup>
 <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value, loginForm.valid)" novalidate>
@@ -23,5 +23,8 @@
   </div>
   <button type="submit" [disabled]="!loginForm.valid" class="button buttonBlue" color="primary">{{ 'login.login' | translate }}
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-  </button>
+  </button><br />
+  <p style="text-align: center">
+    <a (click)="register()">{{ 'login.signup' | translate }}</a>
+  </p>
 </form>

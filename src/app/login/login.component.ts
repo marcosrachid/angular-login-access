@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService, private eventBroker: EventBrokerHelper) {}
 
   ngOnInit() {
-        this.createForm();
+    this.createForm();
   }
 
   private createForm() {
@@ -33,18 +33,25 @@ export class LoginComponent implements OnInit {
   }
 
   login(model: any, isValid: boolean) {
-    this.loginService.login(model.user, model.password)
-      .subscribe(
-        login => this.processLogin(login),
-        error => this.msgError = error.error.message
-      );
-    this.router.navigate(['/dashboard']);
+    if (isValid) {
+      this.loginService.login(model.user, model.password)
+        .subscribe(
+          login => this.processLogin(login),
+          error => this.msgError = error.error.message
+        );
+    } else {
+      this.msgError = 'login.alert.invalid';
+    }
   }
 
   processLogin(login: Login) {
     localStorage['access_token'] = login.token;
     this.eventBroker.emit<string>('token', login.token);
     this.router.navigate(['/dashboard']);
+  }
+
+  register() {
+    this.router.navigate(['/sign-up']);
   }
 
 }

@@ -4,6 +4,7 @@
     "author": "Por Marcos Rachid",
     "password": "Contraseña",
     "login": "Entrar",
+    "signup": "Crea tu cuenta",
     "alert": {
       "email": {
         "required": "E-mail es obligatorio",
