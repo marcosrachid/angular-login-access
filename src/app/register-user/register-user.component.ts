@@ -35,7 +35,7 @@ export class RegisterUserComponent implements OnInit {
     if (isValid) {
       this.registerUserService.register(model.name, model.user, model.password)
       .subscribe(
-        data => this.process(),
+        res => this.process(),
         error => this.msgError = error.error.message
       );
     } else {
@@ -43,11 +43,13 @@ export class RegisterUserComponent implements OnInit {
     }
   }
 
+  login() {
+    this.router.navigate(['/login']);
+  }
+
   process() {
-      console.log('somehting');
-      console.log(data);
       this.snackBar.open('signup.alert.success', null, {
-        duration: 2000;
+        duration: 2000
       });
       this.router.navigate(['/login']);
   }

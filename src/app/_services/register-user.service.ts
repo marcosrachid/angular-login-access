@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { HttpHelper } from '../_shared';
 
+import { DTO } from '../_models';
+
 @Injectable()
 export class RegisterUserService {
 
@@ -9,7 +11,7 @@ export class RegisterUserService {
 
   public register(name: string, user: string, password: string) {
     const body = { fullName: name, email : user, password: password };
-    return this.httpHelper.register(body);
+    return this.httpHelper.post<any>('auth/register', body);
   }
 
 }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Login } from '../_models/login';
-
 import { HttpHelper } from '../_shared';
+
+import { Login } from '../_models';
 
 @Injectable()
 export class LoginService {
@@ -11,7 +11,7 @@ export class LoginService {
 
   public login(user: string, password: string) {
     const body = { email : user, password: password };
-    return this.httpHelper.authenticate(body);
+    return this.httpHelper.post<Login>('auth/sign_in', body);
   }
 
 }

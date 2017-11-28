@@ -1,6 +1,6 @@
 import 'hammerjs';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatToolbarModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -12,7 +12,9 @@ import {
   RegisterUserModule,
   AppGuard,
   HttpHelper,
-  EventBrokerHelper
+  EventBrokerHelper,
+  EmptyResponseInterceptor,
+  TokenInterceptor
 } from './';
 
 import { AppComponent } from './app.component';
@@ -46,6 +48,16 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     AppGuard,
     EventBrokerHelper,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: EmptyResponseInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     HttpHelper
   ],
   bootstrap: [
