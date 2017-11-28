@@ -15,9 +15,9 @@ import {
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  private token: string;
-  private language: string;
-  private languages: Language[];
+  token: string;
+  language: string;
+  languages: Language[];
   private eventListener: IEventListener;
 
   constructor(private router: Router, private translate: TranslateService, private eventBroker: EventBrokerHelper) {}

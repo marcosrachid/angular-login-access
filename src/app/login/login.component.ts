@@ -16,8 +16,8 @@ import { Login } from '../_models';
 })
 export class LoginComponent implements OnInit {
 
-  private loginForm: FormGroup;
-  private msgError: string;
+  loginForm: FormGroup;
+  msgError: string;
 
   constructor(private fb: FormBuilder, private router: Router,
     private translate: TranslateService, private loginService: LoginService,

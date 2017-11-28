@@ -15,8 +15,8 @@ import { TermsComponent } from '../_shared';
 })
 export class RegisterUserComponent implements OnInit {
 
-  private signupForm: FormGroup;
-  private msgError: string;
+  signupForm: FormGroup;
+  msgError: string;
 
   constructor(private dialog: MatDialog, private snackBar: MatSnackBar,
     private fb: FormBuilder, private router: Router,
