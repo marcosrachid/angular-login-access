@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { EventBrokerHelper } from '../_shared';
 
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   private msgError: string;
 
   constructor(private fb: FormBuilder, private router: Router,
-    private loginService: LoginService, private eventBroker: EventBrokerHelper) {}
+    private translate: TranslateService, private loginService: LoginService,
+    private eventBroker: EventBrokerHelper) {}
 
   ngOnInit() {
     this.createForm();
@@ -28,7 +30,7 @@ export class LoginComponent implements OnInit {
   private createForm() {
     this.loginForm = this.fb.group({
       user: ['',  Validators.compose([ Validators.required, Validators.email ]) ],
-      password: ['', Validators.required ]
+      password: ['', Validators.compose([ Validators.required, Validators.minLength(6) ]) ]
     });
   }
 
@@ -37,10 +39,14 @@ export class LoginComponent implements OnInit {
       this.loginService.login(model.user, model.password)
         .subscribe(
           login => this.processLogin(login),
-          error => this.msgError = error.error.message
+          error => this.msgError = `Err: ${error.message}`
         );
     } else {
-      this.msgError = 'login.alert.invalid';
+      this.translate.getTranslation(localStorage['language'])
+        .subscribe(
+          res => this.msgError = res.login.alert.invalid,
+          error => console.log(error)
+        );
     }
   }
 

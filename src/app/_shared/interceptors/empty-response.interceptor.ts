@@ -15,18 +15,17 @@ export class EmptyResponseInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		if (req.responseType == 'json') {
-			req = req.clone({ responseType: 'text' });
+    if (req.responseType === 'json') {
+      req = req.clone({ responseType: 'text' });
 
-			return next.handle(req).map(response => {
-				if (response instanceof HttpResponse) {
-					response = response.clone<any>({ body: JSON.parse(response.body) });
-				}
+      return next.handle(req).map(response => {
+        if (response instanceof HttpResponse) {
+          response = response.clone<any>({ body: JSON.parse(response.body) });
+        }
+        return response;
+      });
+    }
 
-				return response;
-			});
-		}
-
-		return next.handle(req);
-	}
+    return next.handle(req);
+  }
 }

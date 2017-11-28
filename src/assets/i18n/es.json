@@ -10,7 +10,37 @@
         "required": "E-mail es obligatorio",
         "invalid": "E-mail es invalido"
       },
-      "password": "Contraseña es obligatoria"
+      "password": {
+        "required": "Password is required",
+        "min": "Password minimum lenght of 6 required"
+      }
+    }
+  },
+  "signup": {
+    "register": "Registre su cuenta",
+    "name": "Nombre",
+    "password": "Contraseña",
+    "repeat": "Repita la contraseña",
+    "terms": "Términos y condiciones",
+    "signup": "Registrar",
+    "login": "Login",
+    "alert": {
+      "name": "Nombre es obligatorio",
+      "email": {
+        "required": "E-mail es obligatoria",
+        "invalid": "E-mail es invalido"
+      },
+      "password": {
+        "required": "Password is required",
+        "min": "Password minimum lenght of 6 required"
+      },
+      "repeat": {
+        "required": "La contraseña repetida es obligatoria",
+        "password": "Contraseña Repetida debe ser igual a la contraseña"
+      },
+      "terms": "Los términos deben ser revisados",
+      "invalid": "No se pudo registrar el usuario",
+      "success": "Usuario registrado con éxito"
     }
   },
   "logout": "Salir",

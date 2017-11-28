@@ -11,7 +11,37 @@
         "required": "E-mail is required",
         "invalid": "E-mail is not valid"
       },
-      "password": "Password is required"
+      "password": {
+        "required": "Password is required",
+        "min": "Password minimum lenght of 6 required"
+      }
+    }
+  },
+  "signup": {
+    "register": "Register your account",
+    "name": "Name",
+    "password": "Password",
+    "repeat": "Repeat Password",
+    "terms": "Terms",
+    "signup": "Register",
+    "login": "Login",
+    "alert": {
+      "name": "Name is required",
+      "email": {
+        "required": "E-mail is required",
+        "invalid": "E-mail is not Valid"
+      },
+      "password": {
+        "required": "Password is required",
+        "min": "Password minimum lenght of 6 required"
+      },
+      "repeat": {
+        "required": "Repeated Password is required",
+        "password": "Repeated Password must be equal to Password"
+      },
+      "terms": "Terms need to be checked",
+      "invalid": "Could not register user",
+      "success": "User successfully registered"
     }
   },
   "logout": "Logout",

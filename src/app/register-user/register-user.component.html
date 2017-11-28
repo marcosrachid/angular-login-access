@@ -10,7 +10,7 @@
     <input class="form-control" type="text" formControlName="name" /><span class="highlight" ></span><span class="bar"></span>
     <label for="user" [class.active]="signupForm.controls['name'].value">{{ 'signup.name' | translate }}</label>
     <div *ngIf="signupForm.controls['name'].errors && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched)">
-      <p *ngIf="signupForm.controls['name'].errors.required" class="alert">{{ 'signup.alert.name.required' | translate }}</p>
+      <p *ngIf="signupForm.controls['name'].errors.required" class="alert">{{ 'signup.alert.name' | translate }}</p>
     </div>
   </div>
   <div class="form-group">
@@ -25,18 +25,20 @@
     <input class="form-control" type="password" formControlName="password" /><span class="highlight"></span><span class="bar"></span>
     <label for="password" [class.active]="signupForm.controls['password'].value">{{ 'signup.password' | translate }}</label>
     <div *ngIf="signupForm.controls['password'].errors && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
-      <p *ngIf="signupForm.controls['password'].errors.required" class="alert">{{ 'signup.alert.password' | translate }}</p>
+      <p *ngIf="signupForm.controls['password'].errors.required" class="alert">{{ 'signup.alert.password.required' | translate }}</p>
+      <p *ngIf="signupForm.controls['password'].hasError('minLength')" class="alert">{{ 'signup.alert.password.min' | translate }}</p>
     </div>
   </div>
   <div class="form-group">
     <input class="form-control" type="password" formControlName="repeat" /><span class="highlight"></span><span class="bar"></span>
     <label for="repeat" [class.active]="signupForm.controls['repeat'].value">{{ 'signup.repeat' | translate }}</label>
     <div *ngIf="signupForm.controls['repeat'].errors && (signupForm.controls['repeat'].dirty || signupForm.controls['repeat'].touched)">
-      <p *ngIf="signupForm.controls['repeat'].errors.required" class="alert">{{ 'signup.alert.repeat' | translate }}</p>
+      <p *ngIf="signupForm.controls['repeat'].errors.required" class="alert">{{ 'signup.alert.repeat.required' | translate }}</p>
+      <p *ngIf="signupForm.controls['repeat'].errors.match" class="alert">{{ 'signup.alert.repeat.password' | translate }}</p>
     </div>
   </div>
   <div class="form-group">
-    <input class="form-control" type="checkbox" formControlName="terms" /><span (click)="openTerms()" style="cursor: pointer">{{ 'signup.terms' | translate }}</span>
+    <input class="form-control" type="checkbox" formControlName="terms" /><span>{{ 'signup.terms' | translate }}</span> <mat-icon (click)="openTerms()" style="cursor: pointer">check box</mat-icon>
     <div *ngIf="signupForm.controls['terms'].errors && (signupForm.controls['terms'].dirty || signupForm.controls['terms'].touched)">
       <p *ngIf="signupForm.controls['terms'].errors.requiredTrue" class="alert">{{ 'signup.alert.terms' | translate }}</p>
     </div>

@@ -18,7 +18,8 @@
     <input class="form-control" type="password" formControlName="password" /><span class="highlight"></span><span class="bar"></span>
     <label for="password" [class.active]="loginForm.controls['password'].value">{{ 'login.password' | translate }}</label>
     <div *ngIf="loginForm.controls['password'].errors && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
-      <p *ngIf="loginForm.controls['password'].errors.required" class="alert">{{ 'login.alert.password' | translate }}</p>
+      <p *ngIf="loginForm.controls['password'].errors.required" class="alert">{{ 'login.alert.password.required' | translate }}</p>
+      <p *ngIf="loginForm.controls['password'].hasError('minLength')" class="alert">{{ 'login.alert.password.min' | translate }}</p>
     </div>
   </div>
   <button type="submit" [disabled]="!loginForm.valid" class="button buttonBlue" color="primary">{{ 'login.login' | translate }}

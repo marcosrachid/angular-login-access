@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatDialogModule,
+  MatIconModule,
   MatSnackBarModule
 } from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
@@ -21,6 +22,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatIconModule,
     MatSnackBarModule,
     TranslateModule
   ],
@@ -33,6 +35,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatIconModule,
     MatSnackBarModule,
     TranslateModule
   ]

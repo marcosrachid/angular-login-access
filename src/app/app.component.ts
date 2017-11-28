@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import {
   EventBrokerHelper,
   IEventListener,
-  Language 
+  Language
 } from './';
 
 @Component({

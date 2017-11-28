@@ -10,7 +10,37 @@
         "required": "E-mail é obrigatório",
         "invalid": "E-mail é inválido"
       },
-      "password": "Senha é obrigatória"
+      "password": {
+        "required": "Senha é obrigatória",
+        "min": "Tamanho minimo de senha deve ser 6"
+      }
+    }
+  },
+  "signup": {
+    "register": "Registre sua conta",
+    "name": "Nome",
+    "password": "Senha",
+    "repeat": "Repita a Senha",
+    "terms": "Termos",
+    "signup": "Registrar",
+    "login": "Login",
+    "alert": {
+      "name": "Nome é obrigatório",
+      "email": {
+        "required": "E-mail é obrigatório",
+        "invalid": "E-mail é inválido"
+      },
+      "password": {
+        "required": "Password is required",
+        "min": "Tamanho minimo de senha deve ser 6"
+      },
+      "repeat": {
+        "required": "Senha repetida é obrigatória",
+        "password": "Senha Repetida necessita ser igual a Senha"
+      },
+      "terms": "Termos precisa ser checado",
+      "invalid": "Não foi possível registrar o usuário",
+      "success": "Usuário registrado com sucesso"
     }
   },
   "logout": "Sair",
